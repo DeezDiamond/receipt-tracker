@@ -6,16 +6,11 @@ from .permissions import IsOwner
 
 # Create your views here.
 class ReceiptViewSet(viewsets.ModelViewSet):
-    queryset = Receipt.objects.all()
     serializer_class = ReceiptSerializer
     permission_classes = [IsOwner]
 
-    # def get_permissions(self):
-    #     if self.action == 'create':
-    #         permission_classes = [permissions.isAuthenticated]
-    #     else: 
-    #         permission_classes = [IsOwner]
-    #     return [permission() for permission in permission_classes]
+    def get_queryset(self, *args, **kwargs): 
+        return Receipt.objects.all().filter(user=self.request.user)
 
     def perform_create(self, serializer):
         serializer.save(user = self.request.user)
@@ -27,7 +22,3 @@ class ReceiptViewSet(viewsets.ModelViewSet):
             serializer.save()
             return JsonResponse(code=201, data=serializer.data)
         return JsonResponse(code=400, data="wrong parameters")
-
-# class ReceiptViewSet(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Receipt.objects.all()
-#     serializer_class = ReceiptSerializer
