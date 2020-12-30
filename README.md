@@ -7,6 +7,8 @@ Video Walkthrough: https://youtu.be/jAOs4Lgt7mc
 - Register, Login, Logout 
 - Dashboard to view personal receipts
 - Upload, view, and delete receipts 
+- Deployed application: https://powerful-beyond-48395.herokuapp.com/
+- Frontend repository: https://github.com/DeezDiamond/receipts-frontend
 
 ## Technologies Used 
 - Frontend: 
@@ -30,6 +32,7 @@ Video Walkthrough: https://youtu.be/jAOs4Lgt7mc
 - Clone this repository with `git clone ` and copying and pasting the SSH link into the terminal. 
 - Navigate into the download location, then activate the virtual enviorment with `pipenv shell`
 - Start the server with `python3 manage.py runserver`. The backend server will begin running on http://localhost:8000/
+- Be sure to install the complimentary frontend for this project, which can be found here: https://github.com/DeezDiamond/receipts-frontend
 
 ## Contribution Guidelines 
 - If there is a bug with the app, please provide the following information when submitting a bug report.
